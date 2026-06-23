@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Socios</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+<h1>Gestión de Socios</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="libros.html">Libros</a></li>
+<li><a href="prestamos.html">Préstamos</a></li>
+<li><a href="reportes.html">Reportes</a></li>
+</ul>
+</nav>
+
+<div class="login-container">
+
+<h2>Alta de Socio</h2>
+
+<input type="text" id="dni" placeholder="DNI">
+<input type="text" id="nombre" placeholder="Nombre">
+<input type="text" id="apellido" placeholder="Apellido">
+<input type="text" id="telefono" placeholder="Teléfono">
+
+<button onclick="guardarSocio()">
+Guardar Socio
+</button>
+
+<p id="mensaje"></p>
+
+</div>
+
+<script src="js/socios.js"></script>
+
+</body>
+</html>
