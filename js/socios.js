@@ -1,8 +1,4 @@
-alert("socios.js cargado correctamente");
-
 function guardarSocio() {
-
-    alert("Entró a la función");
 
     let dni = document.getElementById("dni").value;
     let nombre = document.getElementById("nombre").value;
@@ -37,5 +33,8 @@ function guardarSocio() {
     document.getElementById("mensaje").innerText =
         "Socio registrado correctamente";
 
-    alert("Guardado correctamente");
+    document.getElementById("dni").value = "";
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("telefono").value = "";
 }
