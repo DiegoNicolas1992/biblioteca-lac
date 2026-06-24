@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Préstamos</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+<h1>Gestión de Préstamos</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="socios.html">Socios</a></li>
+<li><a href="libros.html">Libros</a></li>
+</ul>
+</nav>
+
+<div class="login-container">
+
+<h2>Registrar Préstamo</h2>
+
+<input type="text" id="socio" placeholder="DNI del Socio">
+
+<input type="text" id="libro" placeholder="Código del Libro">
+
+<input type="date" id="fecha">
+
+<button onclick="guardarPrestamo()">
+Registrar Préstamo
+</button>
+
+<p id="mensaje"></p>
+
+</div>
+
+<script src="js/prestamos.js"></script>
+
+</body>
+</html>
