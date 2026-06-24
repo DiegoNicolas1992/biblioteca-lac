@@ -2,78 +2,78 @@ mostrarSocios();
 mostrarLibros();
 mostrarPrestamos();
 
-function mostrarSocios() {
+function mostrarSocios(){
 
 let socios =
 JSON.parse(localStorage.getItem("socios")) || [];
 
-let html = "";
+let html="";
 
-socios.forEach(s => {
+socios.forEach(s=>{
 
 html += `
-<p>
-${s.dni} -
-${s.nombre}
-${s.apellido}
-</p>
+<tr>
+<td>${s.dni}</td>
+<td>${s.nombre}</td>
+<td>${s.apellido}</td>
+</tr>
 `;
 
 });
 
-document.getElementById("listaSocios").innerHTML =
-html;
+document.getElementById(
+"listaSocios"
+).innerHTML = html;
 
 }
 
-function mostrarLibros() {
+function mostrarLibros(){
 
 let libros =
 JSON.parse(localStorage.getItem("libros")) || [];
 
-let html = "";
+let html="";
 
-libros.forEach(l => {
+libros.forEach(l=>{
 
 html += `
-<p>
-${l.codigo} -
-${l.titulo}
-</p>
+<tr>
+<td>${l.codigo}</td>
+<td>${l.titulo}</td>
+<td>${l.autor}</td>
+</tr>
 `;
 
 });
 
-document.getElementById("listaLibros").innerHTML =
-html;
+document.getElementById(
+"listaLibros"
+).innerHTML = html;
 
 }
 
-function mostrarPrestamos() {
+function mostrarPrestamos(){
 
 let prestamos =
 JSON.parse(localStorage.getItem("prestamos")) || [];
 
-let html = "";
+let html="";
 
-prestamos.forEach(p => {
+prestamos.forEach(p=>{
 
 html += `
-<p>
-Socio:
-${p.socio}
--
-Libro:
-${p.libro}
--
-Fecha:
-${p.fecha}
-</p>
+<tr>
+<td>${p.socio}</td>
+<td>${p.libro}</td>
+<td>${p.fecha}</td>
+</tr>
 `;
 
 });
 
-document.getElementById("listaPrestamos").innerHTML =
-html;
+document.getElementById(
+"listaPrestamos"
+).innerHTML = html;
 
 }
+
