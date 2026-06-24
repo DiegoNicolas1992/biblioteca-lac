@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <title>Reportes</title>
+
 <link rel="stylesheet" href="css/styles.css">
+
+<script>
+
+if(
+!sessionStorage.getItem("usuarioLogueado")
+){
+window.location.href="login.html";
+}
+
+</script>
+
 </head>
 <body>
 
@@ -12,35 +26,102 @@
 </header>
 
 <nav>
+
 <ul>
+
 <li><a href="index.html">Inicio</a></li>
+
 <li><a href="socios.html">Socios</a></li>
+
 <li><a href="libros.html">Libros</a></li>
+
 <li><a href="prestamos.html">Préstamos</a></li>
+
+<li>
+<a href="#" onclick="cerrarSesion()">
+Cerrar Sesión
+</a>
+</li>
+
 </ul>
+
 </nav>
 
 <div class="login-container">
 
 <h2>Socios Registrados</h2>
 
-<div id="listaSocios"></div>
+<table border="1" width="100%">
 
-<hr>
+<thead>
+
+<tr>
+<th>DNI</th>
+<th>Nombre</th>
+<th>Apellido</th>
+</tr>
+
+</thead>
+
+<tbody id="listaSocios"></tbody>
+
+</table>
+
+<br>
 
 <h2>Libros Registrados</h2>
 
-<div id="listaLibros"></div>
+<table border="1" width="100%">
 
-<hr>
+<thead>
+
+<tr>
+<th>Código</th>
+<th>Título</th>
+<th>Autor</th>
+</tr>
+
+</thead>
+
+<tbody id="listaLibros"></tbody>
+
+</table>
+
+<br>
 
 <h2>Préstamos Registrados</h2>
 
-<div id="listaPrestamos"></div>
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+<th>Socio</th>
+<th>Libro</th>
+<th>Fecha</th>
+</tr>
+
+</thead>
+
+<tbody id="listaPrestamos"></tbody>
+
+</table>
 
 </div>
 
 <script src="js/reportes.js"></script>
+
+<script>
+
+function cerrarSesion(){
+
+sessionStorage.clear();
+
+window.location.href="login.html";
+
+}
+
+</script>
 
 </body>
 </html>
