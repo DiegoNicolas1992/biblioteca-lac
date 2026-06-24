@@ -1,19 +1,24 @@
-document.getElementById("loginForm").addEventListener("submit", function(e){
+function ingresar() {
 
-e.preventDefault();
+let usuario =
+document.getElementById("usuario").value;
 
-let usuario = document.getElementById("usuario").value;
-let password = document.getElementById("password").value;
+let clave =
+document.getElementById("clave").value;
 
-if(usuario === "admin" && password === "1234"){
+if(usuario === "admin" && clave === "1234"){
 
-window.location.href="index.html";
+sessionStorage.setItem(
+"usuarioLogueado",
+"admin"
+);
+
+window.location.href = "index.html";
 
 }else{
 
-document.getElementById("mensaje").innerText =
-"Usuario o contraseña incorrectos";
+alert("Usuario o contraseña incorrectos");
 
 }
 
-});
+}
