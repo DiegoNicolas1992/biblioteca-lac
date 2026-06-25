@@ -3,6 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Reportes</title>
 
@@ -19,6 +20,7 @@ window.location.href="login.html";
 </script>
 
 </head>
+
 <body>
 
 <header>
@@ -47,11 +49,42 @@ Cerrar Sesión
 
 </nav>
 
+<main>
+
 <div class="login-container">
+
+<h2>Resumen General</h2>
+
+<div class="card">
+
+<p>
+Total de Socios:
+<strong id="totalSocios">0</strong>
+</p>
+
+<p>
+Total de Libros:
+<strong id="totalLibros">0</strong>
+</p>
+
+<p>
+Total de Préstamos:
+<strong id="totalPrestamos">0</strong>
+</p>
+
+<br>
+
+<button onclick="limpiarDatos()">
+Limpiar Base de Datos
+</button>
+
+</div>
+
+<br>
 
 <h2>Socios Registrados</h2>
 
-<table border="1" width="100%">
+<table>
 
 <thead>
 
@@ -71,7 +104,7 @@ Cerrar Sesión
 
 <h2>Libros Registrados</h2>
 
-<table border="1" width="100%">
+<table>
 
 <thead>
 
@@ -91,7 +124,7 @@ Cerrar Sesión
 
 <h2>Préstamos Registrados</h2>
 
-<table border="1" width="100%">
+<table>
 
 <thead>
 
@@ -108,6 +141,8 @@ Cerrar Sesión
 </table>
 
 </div>
+
+</main>
 
 <script src="js/reportes.js"></script>
 
