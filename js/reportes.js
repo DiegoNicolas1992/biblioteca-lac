@@ -1,79 +1,75 @@
-mostrarSocios();
-mostrarLibros();
-mostrarPrestamos();
+cargarSocios();
+cargarLibros();
+cargarPrestamos();
 
-function mostrarSocios(){
+function cargarSocios(){
 
 let socios =
 JSON.parse(localStorage.getItem("socios")) || [];
 
-let html="";
+let tabla =
+document.getElementById("listaSocios");
 
-socios.forEach(s=>{
+tabla.innerHTML = "";
 
-html += `
+for(let socio of socios){
+
+tabla.innerHTML += `
 <tr>
-<td>${s.dni}</td>
-<td>${s.nombre}</td>
-<td>${s.apellido}</td>
+<td>${socio.dni}</td>
+<td>${socio.nombre}</td>
+<td>${socio.apellido}</td>
 </tr>
 `;
 
-});
-
-document.getElementById(
-"listaSocios"
-).innerHTML = html;
+}
 
 }
 
-function mostrarLibros(){
+function cargarLibros(){
 
 let libros =
 JSON.parse(localStorage.getItem("libros")) || [];
 
-let html="";
+let tabla =
+document.getElementById("listaLibros");
 
-libros.forEach(l=>{
+tabla.innerHTML = "";
 
-html += `
+for(let libro of libros){
+
+tabla.innerHTML += `
 <tr>
-<td>${l.codigo}</td>
-<td>${l.titulo}</td>
-<td>${l.autor}</td>
+<td>${libro.codigo}</td>
+<td>${libro.titulo}</td>
+<td>${libro.autor}</td>
 </tr>
 `;
 
-});
-
-document.getElementById(
-"listaLibros"
-).innerHTML = html;
+}
 
 }
 
-function mostrarPrestamos(){
+function cargarPrestamos(){
 
 let prestamos =
 JSON.parse(localStorage.getItem("prestamos")) || [];
 
-let html="";
+let tabla =
+document.getElementById("listaPrestamos");
 
-prestamos.forEach(p=>{
+tabla.innerHTML = "";
 
-html += `
+for(let prestamo of prestamos){
+
+tabla.innerHTML += `
 <tr>
-<td>${p.socio}</td>
-<td>${p.libro}</td>
-<td>${p.fecha}</td>
+<td>${prestamo.socio}</td>
+<td>${prestamo.libro}</td>
+<td>${prestamo.fecha}</td>
 </tr>
 `;
 
-});
-
-document.getElementById(
-"listaPrestamos"
-).innerHTML = html;
-
 }
 
+}
