@@ -3,10 +3,10 @@ function ingresar() {
 let usuario =
 document.getElementById("usuario").value;
 
-let clave =
-document.getElementById("clave").value;
+let password =
+document.getElementById("password").value;
 
-if(usuario === "admin" && clave === "1234"){
+if(usuario === "admin" && password === "1234"){
 
 sessionStorage.setItem(
 "usuarioLogueado",
