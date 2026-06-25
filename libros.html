@@ -3,6 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gestión de Libros</title>
 
@@ -19,3 +20,82 @@ window.location.href="login.html";
 </head>
 
 <body>
+
+<header>
+<h1>Gestión de Libros</h1>
+</header>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Inicio</a></li>
+
+<li><a href="socios.html">Socios</a></li>
+
+<li><a href="prestamos.html">Préstamos</a></li>
+
+<li><a href="reportes.html">Reportes</a></li>
+
+<li>
+<a href="#" onclick="cerrarSesion()">
+Cerrar Sesión
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<div class="login-container">
+
+<h2>Alta de Libro</h2>
+
+<input
+type="text"
+id="codigo"
+placeholder="Código del Libro"
+>
+
+<input
+type="text"
+id="titulo"
+placeholder="Título"
+>
+
+<input
+type="text"
+id="autor"
+placeholder="Autor"
+>
+
+<input
+type="text"
+id="categoria"
+placeholder="Categoría"
+>
+
+<button onclick="guardarLibro()">
+Guardar Libro
+</button>
+
+<p id="mensaje"></p>
+
+</div>
+
+<script src="js/libros.js"></script>
+
+<script>
+
+function cerrarSesion(){
+
+sessionStorage.clear();
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
