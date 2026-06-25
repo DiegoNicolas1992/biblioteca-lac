@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <title>Gestión de Préstamos</title>
+
 <link rel="stylesheet" href="css/styles.css">
+
+<script>
+
+if(!sessionStorage.getItem("usuarioLogueado")){
+window.location.href="login.html";
+}
+
+</script>
+
 </head>
+
 <body>
 
 <header>
@@ -12,22 +25,47 @@
 </header>
 
 <nav>
+
 <ul>
+
 <li><a href="index.html">Inicio</a></li>
+
 <li><a href="socios.html">Socios</a></li>
+
 <li><a href="libros.html">Libros</a></li>
+
+<li><a href="reportes.html">Reportes</a></li>
+
+<li>
+<a href="#" onclick="cerrarSesion()">
+Cerrar Sesión
+</a>
+</li>
+
 </ul>
+
 </nav>
 
 <div class="login-container">
 
 <h2>Registrar Préstamo</h2>
 
-<input type="text" id="socio" placeholder="DNI del Socio">
+<input
+type="text"
+id="socio"
+placeholder="DNI del Socio"
+>
 
-<input type="text" id="libro" placeholder="Código del Libro">
+<input
+type="text"
+id="libro"
+placeholder="Código del Libro"
+>
 
-<input type="date" id="fecha">
+<input
+type="date"
+id="fecha"
+>
 
 <button onclick="guardarPrestamo()">
 Registrar Préstamo
@@ -38,6 +76,18 @@ Registrar Préstamo
 </div>
 
 <script src="js/prestamos.js"></script>
+
+<script>
+
+function cerrarSesion(){
+
+sessionStorage.clear();
+
+window.location.href="login.html";
+
+}
+
+</script>
 
 </body>
 </html>
