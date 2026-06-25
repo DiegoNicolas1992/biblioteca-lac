@@ -1,20 +1,27 @@
-cargarSocios();
-cargarLibros();
-cargarPrestamos();
-
-function cargarSocios(){
-
 let socios =
 JSON.parse(localStorage.getItem("socios")) || [];
 
-let tabla =
+let libros =
+JSON.parse(localStorage.getItem("libros")) || [];
+
+let prestamos =
+JSON.parse(localStorage.getItem("prestamos")) || [];
+
+document.getElementById("totalSocios").innerText =
+socios.length;
+
+document.getElementById("totalLibros").innerText =
+libros.length;
+
+document.getElementById("totalPrestamos").innerText =
+prestamos.length;
+
+let tablaSocios =
 document.getElementById("listaSocios");
 
-tabla.innerHTML = "";
+socios.forEach(function(socio){
 
-for(let socio of socios){
-
-tabla.innerHTML += `
+tablaSocios.innerHTML += `
 <tr>
 <td>${socio.dni}</td>
 <td>${socio.nombre}</td>
@@ -22,23 +29,14 @@ tabla.innerHTML += `
 </tr>
 `;
 
-}
+});
 
-}
-
-function cargarLibros(){
-
-let libros =
-JSON.parse(localStorage.getItem("libros")) || [];
-
-let tabla =
+let tablaLibros =
 document.getElementById("listaLibros");
 
-tabla.innerHTML = "";
+libros.forEach(function(libro){
 
-for(let libro of libros){
-
-tabla.innerHTML += `
+tablaLibros.innerHTML += `
 <tr>
 <td>${libro.codigo}</td>
 <td>${libro.titulo}</td>
@@ -46,29 +44,42 @@ tabla.innerHTML += `
 </tr>
 `;
 
-}
+});
 
-}
-
-function cargarPrestamos(){
-
-let prestamos =
-JSON.parse(localStorage.getItem("prestamos")) || [];
-
-let tabla =
+let tablaPrestamos =
 document.getElementById("listaPrestamos");
 
-tabla.innerHTML = "";
+prestamos.forEach(function(prestamo){
 
-for(let prestamo of prestamos){
-
-tabla.innerHTML += `
+tablaPrestamos.innerHTML += `
 <tr>
 <td>${prestamo.socio}</td>
 <td>${prestamo.libro}</td>
 <td>${prestamo.fecha}</td>
 </tr>
 `;
+
+});
+
+function limpiarDatos(){
+
+let confirmar = confirm(
+"¿Está seguro que desea eliminar todos los datos?"
+);
+
+if(confirmar){
+
+localStorage.removeItem("socios");
+
+localStorage.removeItem("libros");
+
+localStorage.removeItem("prestamos");
+
+alert(
+"Base de datos limpiada correctamente"
+);
+
+location.reload();
 
 }
 
