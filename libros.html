@@ -1,45 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <title>Gestión de Libros</title>
+
 <link rel="stylesheet" href="css/styles.css">
+
+<script>
+
+if(!sessionStorage.getItem("usuarioLogueado")){
+window.location.href="login.html";
+}
+
+</script>
+
 </head>
+
 <body>
-
-<header>
-<h1>Gestión de Libros</h1>
-</header>
-
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="socios.html">Socios</a></li>
-<li><a href="prestamos.html">Préstamos</a></li>
-</ul>
-</nav>
-
-<div class="login-container">
-
-<h2>Alta de Libro</h2>
-
-<input type="text" id="codigo" placeholder="Código">
-
-<input type="text" id="titulo" placeholder="Título">
-
-<input type="text" id="autor" placeholder="Autor">
-
-<input type="text" id="categoria" placeholder="Categoría">
-
-<button onclick="guardarLibro()">
-Guardar Libro
-</button>
-
-<p id="mensaje"></p>
-
-</div>
-
-<script src="js/libros.js"></script>
-
-</body>
-</html>
