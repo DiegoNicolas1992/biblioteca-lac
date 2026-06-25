@@ -1,12 +1,25 @@
 function ingresar() {
 
 let usuario =
-document.getElementById("usuario").value;
+document.getElementById("usuario");
 
 let password =
-document.getElementById("password").value;
+document.getElementById("password");
 
-if(usuario === "admin" && password === "1234"){
+if(usuario === null){
+alert("No se encontró el campo usuario");
+return;
+}
+
+if(password === null){
+alert("No se encontró el campo contraseña");
+return;
+}
+
+if(
+usuario.value === "admin" &&
+password.value === "1234"
+){
 
 sessionStorage.setItem(
 "usuarioLogueado",
