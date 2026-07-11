@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gestión de Socios</title>
 
@@ -11,7 +13,7 @@
 <script>
 
 if(!sessionStorage.getItem("usuarioLogueado")){
-window.location.href="login.html";
+    window.location.href="login.html";
 }
 
 </script>
@@ -21,7 +23,9 @@ window.location.href="login.html";
 <body>
 
 <header>
-<h1>Gestión de Socios</h1>
+
+<h1>Biblioteca LAC - Gestión de Socios</h1>
+
 </header>
 
 <nav>
@@ -46,41 +50,100 @@ Cerrar Sesión
 
 </nav>
 
+<main>
+
 <div class="login-container">
 
-<h2>Alta de Socio</h2>
+<h2>Alta / Modificación de Socios</h2>
 
 <input
 type="text"
 id="dni"
-placeholder="DNI"
->
+placeholder="DNI">
 
 <input
 type="text"
 id="nombre"
-placeholder="Nombre"
->
+placeholder="Nombre">
 
 <input
 type="text"
 id="apellido"
-placeholder="Apellido"
->
+placeholder="Apellido">
 
 <input
 type="text"
 id="telefono"
-placeholder="Teléfono"
->
+placeholder="Teléfono">
 
-<button onclick="guardarSocio()">
+<input
+type="email"
+id="email"
+placeholder="Correo Electrónico">
+
+<input
+type="text"
+id="domicilio"
+placeholder="Domicilio">
+
+<button id="btnGuardar" onclick="guardarSocio()">
 Guardar Socio
+</button>
+
+<button id="btnActualizar" onclick="actualizarSocio()" style="display:none;">
+Actualizar Socio
 </button>
 
 <p id="mensaje"></p>
 
+<hr>
+
+<h2>Buscar Socio</h2>
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar por DNI, Nombre o Apellido"
+onkeyup="buscarSocio()">
+
+<h3>
+Total de Socios:
+<span id="totalSocios">0</span>
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>DNI</th>
+
+<th>Nombre</th>
+
+<th>Apellido</th>
+
+<th>Teléfono</th>
+
+<th>Email</th>
+
+<th>Domicilio</th>
+
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaSocios">
+
+</tbody>
+
+</table>
+
 </div>
+
+</main>
 
 <script src="js/socios.js"></script>
 
@@ -97,4 +160,6 @@ window.location.href="login.html";
 </script>
 
 </body>
+
 </html>
+¿Qué cambia?
