@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -22,7 +23,9 @@ window.location.href="login.html";
 <body>
 
 <header>
-<h1>Gestión de Libros</h1>
+
+<h1>Biblioteca LAC - Gestión de Libros</h1>
+
 </header>
 
 <nav>
@@ -47,41 +50,124 @@ Cerrar Sesión
 
 </nav>
 
+<main>
+
 <div class="login-container">
 
-<h2>Alta de Libro</h2>
+<h2>Alta / Modificación de Libros</h2>
 
 <input
 type="text"
 id="codigo"
-placeholder="Código del Libro"
->
+placeholder="Código">
 
 <input
 type="text"
 id="titulo"
-placeholder="Título"
->
+placeholder="Título del Libro">
 
 <input
 type="text"
 id="autor"
-placeholder="Autor"
->
+placeholder="Autor">
+
+<input
+type="text"
+id="editorial"
+placeholder="Editorial">
+
+<input
+type="number"
+id="anio"
+placeholder="Año">
 
 <input
 type="text"
 id="categoria"
-placeholder="Categoría"
->
+placeholder="Categoría">
 
-<button onclick="guardarLibro()">
+<select id="estado">
+
+<option value="Disponible">
+Disponible
+</option>
+
+<option value="Prestado">
+Prestado
+</option>
+
+</select>
+
+<button
+id="btnGuardar"
+onclick="guardarLibro()">
 Guardar Libro
+</button>
+
+<button
+id="btnActualizar"
+onclick="actualizarLibro()"
+style="display:none;">
+Actualizar Libro
 </button>
 
 <p id="mensaje"></p>
 
+<hr>
+
+<h2>Buscar Libro</h2>
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar por Código, Título o Autor"
+onkeyup="buscarLibro()">
+
+<h3>
+
+Total de Libros:
+
+<span id="totalLibros">
+0
+</span>
+
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Código</th>
+
+<th>Título</th>
+
+<th>Autor</th>
+
+<th>Editorial</th>
+
+<th>Año</th>
+
+<th>Categoría</th>
+
+<th>Estado</th>
+
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaLibros">
+
+</tbody>
+
+</table>
+
 </div>
+
+</main>
 
 <script src="js/libros.js"></script>
 
@@ -98,4 +184,5 @@ window.location.href="login.html";
 </script>
 
 </body>
+
 </html>
