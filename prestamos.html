@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gestión de Préstamos</title>
 
@@ -21,7 +23,9 @@ window.location.href="login.html";
 <body>
 
 <header>
-<h1>Gestión de Préstamos</h1>
+
+<h1>Biblioteca LAC - Gestión de Préstamos</h1>
+
 </header>
 
 <nav>
@@ -46,34 +50,95 @@ Cerrar Sesión
 
 </nav>
 
+<main>
+
 <div class="login-container">
 
 <h2>Registrar Préstamo</h2>
 
 <input
 type="text"
-id="socio"
-placeholder="DNI del Socio"
->
+id="dni"
+placeholder="DNI del Socio">
 
 <input
 type="text"
-id="libro"
-placeholder="Código del Libro"
->
+id="codigo"
+placeholder="Código del Libro">
+
+<label>Fecha del préstamo</label>
 
 <input
 type="date"
-id="fecha"
->
+id="fechaPrestamo">
+
+<label>Fecha de devolución</label>
+
+<input
+type="date"
+id="fechaDevolucion">
 
 <button onclick="guardarPrestamo()">
+
 Registrar Préstamo
+
 </button>
 
 <p id="mensaje"></p>
 
+<hr>
+
+<h2>Buscar Préstamo</h2>
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar por DNI o Código"
+onkeyup="buscarPrestamo()">
+
+<h3>
+
+Total de Préstamos:
+
+<span id="totalPrestamos">
+
+0
+
+</span>
+
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>DNI</th>
+
+<th>Libro</th>
+
+<th>Fecha Préstamo</th>
+
+<th>Fecha Devolución</th>
+
+<th>Estado</th>
+
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaPrestamos">
+
+</tbody>
+
+</table>
+
 </div>
+
+</main>
 
 <script src="js/prestamos.js"></script>
 
@@ -90,4 +155,5 @@ window.location.href="login.html";
 </script>
 
 </body>
+
 </html>
