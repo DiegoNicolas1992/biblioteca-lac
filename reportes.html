@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Reportes</title>
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet"
+href="css/styles.css">
 
 <script>
 
-if(
-!sessionStorage.getItem("usuarioLogueado")
-){
+if(!sessionStorage.getItem("usuarioLogueado")){
 window.location.href="login.html";
 }
 
@@ -24,26 +26,28 @@ window.location.href="login.html";
 <body>
 
 <header>
-<h1>Reportes del Sistema</h1>
+
+<h1>Biblioteca LAC</h1>
+
+<h2>Reportes del Sistema</h2>
+
 </header>
 
 <nav>
 
 <ul>
 
-<li><a href="index.html">Inicio</a></li>
+<li><a href="index.html">🏠 Inicio</a></li>
 
-<li><a href="socios.html">Socios</a></li>
+<li><a href="socios.html">👥 Socios</a></li>
 
-<li><a href="libros.html">Libros</a></li>
+<li><a href="libros.html">📚 Libros</a></li>
 
-<li><a href="prestamos.html">Préstamos</a></li>
+<li><a href="prestamos.html">📖 Préstamos</a></li>
 
-<li>
-<a href="#" onclick="cerrarSesion()">
-Cerrar Sesión
-</a>
-</li>
+<li><a href="#" onclick="cerrarSesion()">
+🚪 Cerrar Sesión
+</a></li>
 
 </ul>
 
@@ -51,36 +55,51 @@ Cerrar Sesión
 
 <main>
 
-<div class="login-container">
-
-<h2>Resumen General</h2>
+<div class="dashboard">
 
 <div class="card">
 
-<p>
-Total de Socios:
-<strong id="totalSocios">0</strong>
-</p>
+<h2>👥 Socios</h2>
 
-<p>
-Total de Libros:
-<strong id="totalLibros">0</strong>
-</p>
+<h1 id="cantSocios">0</h1>
 
-<p>
-Total de Préstamos:
-<strong id="totalPrestamos">0</strong>
-</p>
-
-<br>
-
-<button onclick="limpiarDatos()">
-Limpiar Base de Datos
-</button>
+<p>Registrados</p>
 
 </div>
 
-<br>
+<div class="card">
+
+<h2>📚 Libros</h2>
+
+<h1 id="cantLibros">0</h1>
+
+<p>Registrados</p>
+
+</div>
+
+<div class="card">
+
+<h2>📖 Préstamos</h2>
+
+<h1 id="cantPrestamos">0</h1>
+
+<p>Activos</p>
+
+</div>
+
+<div class="card">
+
+<h2>📗 Disponibles</h2>
+
+<h1 id="cantDisponibles">0</h1>
+
+<p>Libros</p>
+
+</div>
+
+</div>
+
+<div class="login-container">
 
 <h2>Socios Registrados</h2>
 
@@ -89,14 +108,22 @@ Limpiar Base de Datos
 <thead>
 
 <tr>
+
 <th>DNI</th>
+
 <th>Nombre</th>
+
 <th>Apellido</th>
+
+<th>Estado</th>
+
 </tr>
 
 </thead>
 
-<tbody id="listaSocios"></tbody>
+<tbody id="listaSocios">
+
+</tbody>
 
 </table>
 
@@ -109,14 +136,22 @@ Limpiar Base de Datos
 <thead>
 
 <tr>
+
 <th>Código</th>
+
 <th>Título</th>
+
 <th>Autor</th>
+
+<th>Estado</th>
+
 </tr>
 
 </thead>
 
-<tbody id="listaLibros"></tbody>
+<tbody id="listaLibros">
+
+</tbody>
 
 </table>
 
@@ -129,16 +164,34 @@ Limpiar Base de Datos
 <thead>
 
 <tr>
+
 <th>Socio</th>
+
 <th>Libro</th>
-<th>Fecha</th>
+
+<th>Préstamo</th>
+
+<th>Devolución</th>
+
+<th>Estado</th>
+
 </tr>
 
 </thead>
 
-<tbody id="listaPrestamos"></tbody>
+<tbody id="listaPrestamos">
+
+</tbody>
 
 </table>
+
+<br><br>
+
+<button onclick="limpiarDatos()">
+
+🗑 Limpiar Datos de Prueba
+
+</button>
 
 </div>
 
@@ -156,7 +209,30 @@ window.location.href="login.html";
 
 }
 
+function limpiarDatos(){
+
+let confirmar = confirm(
+
+"¿Está seguro que desea borrar todos los datos del sistema?"
+
+);
+
+if(!confirmar){
+return;
+}
+
+localStorage.removeItem("socios");
+localStorage.removeItem("libros");
+localStorage.removeItem("prestamos");
+
+alert("Todos los datos fueron eliminados.");
+
+window.location.reload();
+
+}
+
 </script>
 
 </body>
+
 </html>
