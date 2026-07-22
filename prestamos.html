@@ -4,11 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Gestión de Préstamos</title>
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet"
+href="css/styles.css">
 
 <script>
 
@@ -24,7 +27,9 @@ window.location.href="login.html";
 
 <header>
 
-<h1>Biblioteca LAC - Gestión de Préstamos</h1>
+<h1>Biblioteca LAC</h1>
+
+<h2>Gestión de Préstamos</h2>
 
 </header>
 
@@ -32,17 +37,17 @@ window.location.href="login.html";
 
 <ul>
 
-<li><a href="index.html">Inicio</a></li>
+<li><a href="index.html">🏠 Inicio</a></li>
 
-<li><a href="socios.html">Socios</a></li>
+<li><a href="socios.html">👥 Socios</a></li>
 
-<li><a href="libros.html">Libros</a></li>
+<li><a href="libros.html">📚 Libros</a></li>
 
-<li><a href="reportes.html">Reportes</a></li>
+<li><a href="reportes.html">📊 Reportes</a></li>
 
 <li>
 <a href="#" onclick="cerrarSesion()">
-Cerrar Sesión
+🚪 Cerrar Sesión
 </a>
 </li>
 
@@ -54,31 +59,71 @@ Cerrar Sesión
 
 <div class="login-container">
 
-<h2>Registrar Préstamo</h2>
+<h2>
+
+Registrar Préstamo
+
+</h2>
+
+<label>
+
+Socio
+
+</label>
+
+<select id="dni">
+
+<option value="">
+
+Seleccione un socio
+
+</option>
+
+</select>
+
+<label>
+
+Libro
+
+</label>
+
+<select id="codigo">
+
+<option value="">
+
+Seleccione un libro
+
+</option>
+
+</select>
+
+<label>
+
+Fecha del préstamo
+
+</label>
 
 <input
-type="text"
-id="dni"
-placeholder="DNI del Socio">
 
-<input
-type="text"
-id="codigo"
-placeholder="Código del Libro">
-
-<label>Fecha del préstamo</label>
-
-<input
 type="date"
+
 id="fechaPrestamo">
 
-<label>Fecha de devolución</label>
+<label>
+
+Fecha devolución
+
+</label>
 
 <input
+
 type="date"
+
 id="fechaDevolucion">
 
-<button onclick="guardarPrestamo()">
+<button
+
+onclick="guardarPrestamo()">
 
 Registrar Préstamo
 
@@ -88,17 +133,25 @@ Registrar Préstamo
 
 <hr>
 
-<h2>Buscar Préstamo</h2>
+<h2>
+
+Buscar préstamo
+
+</h2>
 
 <input
+
 type="text"
+
 id="buscar"
-placeholder="Buscar por DNI o Código"
+
+placeholder="Buscar por socio o libro"
+
 onkeyup="buscarPrestamo()">
 
 <h3>
 
-Total de Préstamos:
+Préstamos registrados:
 
 <span id="totalPrestamos">
 
@@ -114,13 +167,13 @@ Total de Préstamos:
 
 <tr>
 
-<th>DNI</th>
+<th>Socio</th>
 
 <th>Libro</th>
 
-<th>Fecha Préstamo</th>
+<th>Préstamo</th>
 
-<th>Fecha Devolución</th>
+<th>Devolución</th>
 
 <th>Estado</th>
 
@@ -132,7 +185,7 @@ Total de Préstamos:
 
 <tbody id="tablaPrestamos">
 
-</tbody>
+  </tbody>
 
 </table>
 
@@ -149,6 +202,24 @@ function cerrarSesion(){
 sessionStorage.clear();
 
 window.location.href="login.html";
+
+}
+
+window.onload = function(){
+
+let hoy = new Date();
+
+let fechaHoy = hoy.toISOString().split("T")[0];
+
+document.getElementById("fechaPrestamo").value = fechaHoy;
+
+let devolucion = new Date();
+
+devolucion.setDate(devolucion.getDate()+15);
+
+let fechaDev = devolucion.toISOString().split("T")[0];
+
+document.getElementById("fechaDevolucion").value = fechaDev;
 
 }
 
