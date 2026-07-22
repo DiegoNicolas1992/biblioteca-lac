@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sistema Integral de Gestión Bibliotecaria</title>
+<title>Biblioteca LAC</title>
 
 <link rel="stylesheet" href="css/styles.css">
 
@@ -22,24 +23,28 @@ window.location.href="login.html";
 <body>
 
 <header>
-<h1>Biblioteca LAC - Sistema Integral de Gestión Bibliotecaria</h1>
+
+<h1>Biblioteca LAC</h1>
+
+<h2>Sistema Integral de Gestión Bibliotecaria</h2>
+
 </header>
 
 <nav>
 
 <ul>
 
-<li><a href="index.html">Inicio</a></li>
-<li><a href="socios.html">Socios</a></li>
-<li><a href="libros.html">Libros</a></li>
-<li><a href="prestamos.html">Préstamos</a></li>
-<li><a href="reportes.html">Reportes</a></li>
+<li><a href="index.html">🏠 Inicio</a></li>
 
-<li>
-<a href="#" onclick="cerrarSesion()">
-Cerrar Sesión
-</a>
-</li>
+<li><a href="socios.html">👥 Socios</a></li>
+
+<li><a href="libros.html">📚 Libros</a></li>
+
+<li><a href="prestamos.html">📖 Préstamos</a></li>
+
+<li><a href="reportes.html">📊 Reportes</a></li>
+
+<li><a href="#" onclick="cerrarSesion()">🚪 Cerrar Sesión</a></li>
 
 </ul>
 
@@ -47,40 +52,112 @@ Cerrar Sesión
 
 <main>
 
-<h2>Panel Principal</h2>
+<h2 style="text-align:center;margin-top:30px;">
+Panel Principal
+</h2>
 
-<div class="cards-container">
+<div class="dashboard">
 
 <div class="card">
-<h3>Socios</h3>
-<p>Administrar altas, bajas y modificaciones de socios.</p>
+
+<h2>👥 Socios</h2>
+
+<h1 id="cantSocios">0</h1>
+
+<p>Socios registrados</p>
+
+</div>
+
+<div class="card">
+
+<h2>📚 Libros</h2>
+
+<h1 id="cantLibros">0</h1>
+
+<p>Libros cargados</p>
+
+</div>
+
+<div class="card">
+
+<h2>📖 Préstamos</h2>
+
+<h1 id="cantPrestamos">0</h1>
+
+<p>Préstamos activos</p>
+
+</div>
+
+<div class="card">
+
+<h2>📗 Disponibles</h2>
+
+<h1 id="cantDisponibles">0</h1>
+
+<p>Libros disponibles</p>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="dashboard">
+
+<div class="card">
+
+<h3>👥 Gestión de Socios</h3>
+
+<p>Alta, modificación, baja y búsqueda de socios.</p>
+
 <a href="socios.html">
+
 <button>Ingresar</button>
+
 </a>
+
 </div>
 
 <div class="card">
-<h3>Libros</h3>
-<p>Administrar inventario bibliográfico.</p>
+
+<h3>📚 Gestión de Libros</h3>
+
+<p>Administración completa del catálogo.</p>
+
 <a href="libros.html">
+
 <button>Ingresar</button>
+
 </a>
+
 </div>
 
 <div class="card">
-<h3>Préstamos</h3>
-<p>Gestionar préstamos y devoluciones.</p>
+
+<h3>📖 Gestión de Préstamos</h3>
+
+<p>Registro y devolución de préstamos.</p>
+
 <a href="prestamos.html">
+
 <button>Ingresar</button>
+
 </a>
+
 </div>
 
 <div class="card">
-<h3>Reportes</h3>
-<p>Consultar estadísticas e información general.</p>
+
+<h3>📊 Reportes</h3>
+
+<p>Consultas y estadísticas generales.</p>
+
 <a href="reportes.html">
+
 <button>Ingresar</button>
+
 </a>
+
 </div>
 
 </div>
@@ -88,6 +165,41 @@ Cerrar Sesión
 </main>
 
 <script>
+
+let socios =
+JSON.parse(localStorage.getItem("socios")) || [];
+
+let libros =
+JSON.parse(localStorage.getItem("libros")) || [];
+
+let prestamos =
+JSON.parse(localStorage.getItem("prestamos")) || [];
+
+document.getElementById("cantSocios").innerText =
+socios.length;
+
+document.getElementById("cantLibros").innerText =
+libros.length;
+
+let activos =
+prestamos.filter(function(p){
+
+return p.estado==="Prestado";
+
+});
+
+document.getElementById("cantPrestamos").innerText =
+activos.length;
+
+let disponibles =
+libros.filter(function(l){
+
+return l.estado==="Disponible";
+
+});
+
+document.getElementById("cantDisponibles").innerText =
+disponibles.length;
 
 function cerrarSesion(){
 
@@ -100,4 +212,5 @@ window.location.href="login.html";
 </script>
 
 </body>
+
 </html>
